@@ -8,11 +8,10 @@ services:
     env_file:
       - ./.env
   web:
-    build: niksin1/yamdb:latest
+    image: niksin1/yamdb:latest
     restart: always
     volumes:
       - static_value:/app/static/
-
       - media_value:/app/media/
     depends_on:
       - db
@@ -26,9 +25,7 @@ services:
 
     volumes:
       - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
-
       - static_value:/var/html/static/
-
       - media_value:/var/html/media/
 
     depends_on:
